@@ -13,6 +13,27 @@
         android:height="52dp"
         android:hint="@string/enter_text" />
 
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="start">
+
+        <RadioButton
+            android:id="@+id/radioShow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioHide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hide" />
+    </RadioGroup>
+
     <Button
         android:id="@+id/btnOk"
         android:layout_width="match_parent"
@@ -20,3 +41,4 @@
         android:height="52dp"
         android:text="@string/ok" />
 </LinearLayout>
+

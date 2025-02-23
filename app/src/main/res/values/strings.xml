@@ -6,4 +6,6 @@
     <string name="result_will_be_displayed_here">Result will be displayed here</string>
     <string name="enter_text">Enter password</string>
     <string name="ok">OK</string>
+    <string name="show">Show</string>
+    <string name="hide">Hide</string>
 </resources>

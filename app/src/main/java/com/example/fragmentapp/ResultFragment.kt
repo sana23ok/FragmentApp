@@ -12,7 +12,7 @@ class ResultFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_result, container, false)
         val textView = view.findViewById<TextView>(R.id.textView)
         val buttonCancel = view.findViewById<Button>(R.id.btnCancel)
@@ -21,6 +21,8 @@ class ResultFragment : Fragment() {
 
         buttonCancel.setOnClickListener {
             parentFragmentManager.popBackStack()
+            // Повернення до попереднього фрагмента і очищення
+            parentFragmentManager.beginTransaction().replace(R.id.fragment_container, InputFragment()).commit()
         }
 
         return view
@@ -34,3 +36,4 @@ class ResultFragment : Fragment() {
         }
     }
 }
+
