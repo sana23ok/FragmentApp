@@ -1,6 +1,7 @@
 package com.example.fragmentapp
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -17,6 +18,12 @@ class DataDisplayActivity : AppCompatActivity() {
             dataList.joinToString("\n")
         } else {
             "No data"
+        }
+
+        // Add a "Back" button to return to the previous screen
+        val backButton = findViewById<Button>(R.id.backButton) // Ensure you add this button in your XML layout
+        backButton.setOnClickListener {
+            finish() // Close this activity and go back to the previous one
         }
     }
 }

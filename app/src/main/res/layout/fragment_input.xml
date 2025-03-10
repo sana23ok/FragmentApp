@@ -6,46 +6,40 @@
     android:padding="16dp"
     android:gravity="center">
 
+    <!-- EditText з застосуванням стилю -->
     <EditText
         android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:height="52dp"
-        android:hint="@string/enter_text" />
+        style="@style/EditTextStyle" />
 
+    <!-- RadioGroup з застосуванням стилю -->
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="start">
+        style="@style/RadioGroupStyle">
 
+        <!-- RadioButton з застосуванням стилю -->
         <RadioButton
             android:id="@+id/radioShow"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            style="@style/RadioButtonStyle"
             android:text="@string/show"
             android:checked="true" />
 
         <RadioButton
             android:id="@+id/radioHide"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            style="@style/RadioButtonStyle"
             android:text="@string/hide" />
     </RadioGroup>
 
+    <!-- Button з застосуванням стилю -->
     <Button
         android:id="@+id/btnOk"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:height="52dp"
-        android:text="@string/ok" />
+        style="@style/ButtonStyle"
+        android:text="@string/ok"
+        android:layout_marginTop="12dp" />
 
     <Button
         android:id="@+id/btnOpen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:height="52dp"
-        android:text="@string/open" />
+        style="@style/ButtonStyle"
+        android:text="@string/open"
+        android:layout_marginTop="18dp" />
 </LinearLayout>
 

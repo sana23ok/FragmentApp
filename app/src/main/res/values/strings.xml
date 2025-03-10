@@ -10,4 +10,5 @@
     <string name="hide">Hide</string>
     <string name="data_from_storage">Data from Storage</string>
     <string name="open">Open</string>
+    <string name="back">Back</string>
 </resources>

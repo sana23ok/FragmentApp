@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="EditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:height">52dp</item>
+        <item name="android:hint">@string/enter_text</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:textColorHint">@color/hint_text_color</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="RadioGroupStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_gravity">start</item>
+    </style>
+
+    <style name="RadioButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:height">52dp</item>
+        <item name="android:background">@color/button_color</item>
+        <item name="android:textColor">@color/button_text_color</item>
+    </style>
+
+</resources>
+
