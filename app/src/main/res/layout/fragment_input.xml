@@ -23,14 +23,14 @@
         <RadioButton
             android:id="@+id/radioShow"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="@string/show"
             android:checked="true" />
 
         <RadioButton
             android:id="@+id/radioHide"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="@string/hide" />
     </RadioGroup>
 
@@ -40,5 +40,12 @@
         android:layout_height="wrap_content"
         android:height="52dp"
         android:text="@string/ok" />
+
+    <Button
+        android:id="@+id/btnOpen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="52dp"
+        android:text="@string/open" />
 </LinearLayout>
 

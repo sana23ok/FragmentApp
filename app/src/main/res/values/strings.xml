@@ -8,4 +8,6 @@
     <string name="ok">OK</string>
     <string name="show">Show</string>
     <string name="hide">Hide</string>
+    <string name="data_from_storage">Data from Storage</string>
+    <string name="open">Open</string>
 </resources>

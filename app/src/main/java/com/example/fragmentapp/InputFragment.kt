@@ -1,6 +1,7 @@
 package com.example.fragmentapp
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ class InputFragment : Fragment() {
     private lateinit var radioShow: RadioButton
     private lateinit var radioHide: RadioButton
     private lateinit var editText: EditText
+    private lateinit var databaseHelper: DatabaseHelper
 
     interface OnDataPass {
         fun onDataPass(data: String)
@@ -27,6 +29,7 @@ class InputFragment : Fragment() {
         } else {
             throw RuntimeException("$context must implement OnDataPass")
         }
+        databaseHelper = DatabaseHelper(context)
     }
 
     override fun onCreateView(
@@ -35,14 +38,13 @@ class InputFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_input, container, false)
 
-        // Ініціалізація елементів інтерфейсу
         editText = view.findViewById(R.id.editText)
-        val button = view.findViewById<Button>(R.id.btnOk)
+        val buttonOk = view.findViewById<Button>(R.id.btnOk)
+        val buttonOpen = view.findViewById<Button>(R.id.btnOpen) //layout/ fragment_input does not contain a declaration with id btnOpen Toggle info (Ctrl+F1)
         radioGroup = view.findViewById(R.id.radioGroup)
         radioShow = view.findViewById(R.id.radioShow)
         radioHide = view.findViewById(R.id.radioHide)
 
-        // Логіка зміни режиму відображення паролю
         radioShow.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 editText.inputType = InputType.TYPE_CLASS_TEXT
@@ -55,10 +57,24 @@ class InputFragment : Fragment() {
             }
         }
 
-        // Логіка кнопки "ОК"
-        button.setOnClickListener {
+        buttonOk.setOnClickListener {
             val text = editText.text.toString()
-            dataPassListener?.onDataPass(text)
+            if (text.isNotEmpty()) {
+                val isInserted = databaseHelper.insertData(text)
+                if (isInserted) {
+                    Toast.makeText(context, "Data is successfully saved!", Toast.LENGTH_SHORT).show()
+                    dataPassListener?.onDataPass(text)
+                } else {
+                    Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(context, "Field can't be empty!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        buttonOpen.setOnClickListener {
+            val intent = Intent(context, DataDisplayActivity::class.java)
+            startActivity(intent)
         }
 
         return view
@@ -66,9 +82,7 @@ class InputFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        // Очистити форму при переході на інший фрагмент
         editText.text.clear()
         radioGroup.clearCheck()
     }
 }
-
