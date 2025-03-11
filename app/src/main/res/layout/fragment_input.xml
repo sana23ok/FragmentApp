@@ -31,9 +31,9 @@
 
     <!-- Button з застосуванням стилю -->
     <Button
-        android:id="@+id/btnOk"
+        android:id="@+id/btnSave"
         style="@style/ButtonStyle"
-        android:text="@string/ok"
+        android:text="@string/save"
         android:layout_marginTop="12dp" />
 
     <Button

@@ -39,7 +39,7 @@ class InputFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_input, container, false)
 
         editText = view.findViewById(R.id.editText)
-        val buttonOk = view.findViewById<Button>(R.id.btnOk)
+        val buttonOk = view.findViewById<Button>(R.id.btnSave)
         val buttonOpen = view.findViewById<Button>(R.id.btnOpen) //layout/ fragment_input does not contain a declaration with id btnOpen Toggle info (Ctrl+F1)
         radioGroup = view.findViewById(R.id.radioGroup)
         radioShow = view.findViewById(R.id.radioShow)

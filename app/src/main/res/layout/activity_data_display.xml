@@ -17,29 +17,44 @@
         android:textColor="#333333"
         android:layout_marginBottom="16dp"/>
 
-    <ScrollView
+    <TextView
+        android:id="@+id/emptyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/storage_is_empty"
+        android:textSize="18sp"
+        android:textColor="#888888"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+
+    <ListView
+        android:id="@+id/listViewData"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/textViewData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/data_from_storage"
-            android:textSize="16sp"
-            android:textColor="#000000"
-            android:lineSpacingExtra="4dp"
-            android:padding="8dp"
-            android:background="#ffffff"
-            android:elevation="2dp" />
-    </ScrollView>
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"/>
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/backButton"
-        style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="24dp"
-        android:height="52dp"
-        android:text="@string/back" />
+        android:text="@string/back"
+        android:layout_marginTop="24dp"/>
 </LinearLayout>
