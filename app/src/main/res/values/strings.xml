@@ -11,4 +11,7 @@
     <string name="data_from_storage">Data from Storage</string>
     <string name="open">Open</string>
     <string name="back">Back</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
 </resources>
