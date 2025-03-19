@@ -28,10 +28,11 @@ class DataDisplayActivity : AppCompatActivity() {
 
         loadData()
 
+        // Обробка вибору елемента у списку
         listView.setOnItemClickListener { _, _, position, _ ->
-            selectedItemId = dataList[position].first
-            editButton.visibility = Button.VISIBLE
-            deleteButton.visibility = Button.VISIBLE
+            selectedItemId = dataList[position].first // Збереження ID вибраного елемента
+            editButton.visibility = Button.VISIBLE  // Показати кнопку редагування
+            deleteButton.visibility = Button.VISIBLE  // Показати кнопку видалення
         }
 
         editButton.setOnClickListener {

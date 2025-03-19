@@ -18,39 +18,55 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "data.db", nu
 
     fun insertData(content: String): Boolean {
         val db = writableDatabase
-        val values = ContentValues()
-        values.put("content", content)
-        val result = db.insert("Data", null, values)
-        return result != -1L
+        return try {
+            val values = ContentValues()
+            values.put("content", content)
+            val result = db.insert("Data", null, values)
+            result != -1L
+        } finally {
+            db.close()
+        }
     }
+
 
     fun getAllDataWithIds(): List<Pair<Int, String>> {
         val db = readableDatabase
-        val cursor = db.rawQuery("SELECT * FROM Data", null)
         val dataList = mutableListOf<Pair<Int, String>>()
 
-        if (cursor.moveToFirst()) {
-            do {
-                val id = cursor.getInt(cursor.getColumnIndexOrThrow("id"))
-                val content = cursor.getString(cursor.getColumnIndexOrThrow("content"))
-                dataList.add(Pair(id, content))
-            } while (cursor.moveToNext())
+        val cursor = db.query("Data", arrayOf("id", "content"), null, null, null, null, null)
+        cursor.use {
+            while (it.moveToNext()) {
+                val id = it.getInt(it.getColumnIndexOrThrow("id"))
+                val content = it.getString(it.getColumnIndexOrThrow("content"))
+                dataList.add(id to content)
+            }
         }
-        cursor.close()
+        db.close()
         return dataList
     }
 
+
     fun updateData(id: Int, newContent: String): Boolean {
         val db = writableDatabase
-        val values = ContentValues()
-        values.put("content", newContent)
-        val result = db.update("Data", values, "id=?", arrayOf(id.toString()))
-        return result > 0
+        return try {
+            val values = ContentValues().apply {
+                put("content", newContent)
+            }
+            val result = db.update("Data", values, "id=?", arrayOf(id.toString()))
+            result > 0
+        } finally {
+            db.close()
+        }
     }
 
     fun deleteData(id: Int): Boolean {
         val db = writableDatabase
-        val result = db.delete("Data", "id=?", arrayOf(id.toString()))
-        return result > 0
+        return try {
+            val result = db.delete("Data", "id=?", arrayOf(id.toString()))
+            result > 0
+        } finally {
+            db.close()
+        }
     }
+
 }
